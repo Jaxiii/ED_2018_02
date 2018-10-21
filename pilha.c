@@ -51,21 +51,28 @@ float pop(t_pilha* pilha){
     if ( pilha->topo != NULL) {
         t_elemento* elemento = pilha->topo;
         pilha->topo = elemento->anterior;
-        return elemento->dado;
-        free(elemento); 
+        float elem = elemento->dado;
+        free(elemento);
+        return elem;
+
     }
     else {
         error();
         return 0.0;
     }
 }
+
+t_elemento* peek(t_pilha* pilha) {
+        return pilha->topo;
+}
+
 void error(){
     printf("%s","ERROR\n");
 }
 
 void imprime_pilha(t_pilha* pilha){
     t_elemento* atual = pilha->topo;
-    while(atual->anterior != NULL){
+    while(atual != NULL){
         printf("Pilha -> %.2f\n",atual->dado);
         atual = atual->anterior;
     }

@@ -1,3 +1,6 @@
+#ifndef PILHA_H_INCLUDED
+#define PILHA_H_INCLUDED
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -27,6 +30,8 @@ int libera_elemento(); /*! Libera a memoria alocada para elementos*/
 int libera_pilha(); /*! Libera a memoria alocada para a lista*/
 int push(t_pilha* pilha, float dado); /*! Adiciona um novo elemento no topo da pilha*/
 float pop(t_pilha* pilha); /*! Retira e retorna o elemento no topo da pilha*/
-float peek(); /*! Retorna o elemento no topo da pilha*/
+t_elemento* peek(t_pilha* pilha); /*! Retorna o elemento no topo da pilha*/
 void imprime_pilha(t_pilha* pilha); /*! Imprimie toda a pilha*/
 void error();
+
+#endif
